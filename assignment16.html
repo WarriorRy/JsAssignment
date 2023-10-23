@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .marbles-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 50px auto;
+      border-radius: 50%;
+    }
+
+    .marble {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: gray;
+      position: absolute;
+    }
+
+    .orange {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="marbles-container" id="marbles-container">
+    <div class="marble orange" id="orange-marble"></div>
+  </div>
+
+  <script>
+    let degrees = 0;
+    let animationTimeout; 
+    const orangeMarble = document.getElementById("orange-marble");
+    const container = document.getElementById("marbles-container");
+
+    function moveOrangeMarble() {
+      const radius = container.clientWidth / 2;
+      const x = radius + radius * Math.cos(degrees * (Math.PI / 180));
+      const y = radius + radius * Math.sin(degrees * (Math.PI / 180));
+      
+      orangeMarble.style.left = x + "px";
+      orangeMarble.style.top = y + "px";
+
+      degrees = (degrees + 10) % 360; 
+      
+      animationTimeout = setTimeout(moveOrangeMarble, 1000);  second
+    }
+
+    function stopAnimation() {
+      clearTimeout(animationTimeout);
+    }
+
+    const allMarbles = document.querySelectorAll(".marble");
+    allMarbles.forEach(marble => {
+      marble.addEventListener("mouseover", stopAnimation);
+      marble.addEventListener("mouseout", moveOrangeMarble); 
+    });
+
+    moveOrangeMarble(); 
+  </script>
+</body>
+</html>

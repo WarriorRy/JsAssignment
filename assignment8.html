@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>assignment8</title>
+  </head>
+  <body>
+    <img id="myImage" src="https://images.pexels.com/photos/5427362/pexels-photo-5427362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Placeholder Image">
+  </body>
+  <script>
+    document.getElementById("myImage").addEventListener("mouseover", function() {
+    this.src = "https://images.pexels.com/photos/3052651/pexels-photo-3052651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+});
+
+document.getElementById("myImage").addEventListener("mouseout", function() {
+    this.src = "https://images.pexels.com/photos/5427362/pexels-photo-5427362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+});
+  </script>
+
+  
+</html>
